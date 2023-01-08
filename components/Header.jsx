@@ -79,7 +79,6 @@ const Header = () => {
         <p className="hidden lg:inline">Toys & Games</p>
         <p className="hidden lg:inline">Gift Card</p>
         <p className="hidden lg:inline">Pharmacy</p>
-        <p className="hidden xl:inline">Amazon Home</p>
         <p className="hidden xl:inline font-bold">Get ready for summer fun</p>
       </div>
     </header>

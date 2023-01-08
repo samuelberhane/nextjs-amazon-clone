@@ -6,4 +6,7 @@
   .link {
     @apply cursor-pointer hover:underline;
   }
+  .bannerImg {
+    @apply h-[45vh] w-full md:h-[60vh] lg:h-[70vh];
+  }
 }

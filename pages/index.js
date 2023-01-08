@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { Header } from "../components";
+import { Header, Banner } from "../components";
 
 export default function Home() {
   return (
@@ -13,6 +13,11 @@ export default function Home() {
       <main>
         {/* Header */}
         <Header />
+
+        <section className="mx-auto max-w-screen-xl ">
+          {/* Banner */}
+          <Banner />
+        </section>
       </main>
     </>
   );

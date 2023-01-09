@@ -21,7 +21,7 @@ const Books = ({ books }) => {
   };
 
   return (
-    <div className="bg-white px-5 py-4 shadow-md my-4">
+    <div className="bg-white px-5 py-4 shadow-md my-4 mx-4 md:mx-8 lg:mx-12">
       <h1 className="font-bold text-2xl">Top Sellers in Books for you</h1>
       <div className="relative h-64 ">
         <div className="h-full absolute left-0 z-40 flex items-center">

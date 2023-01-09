@@ -11,7 +11,7 @@ const Header = () => {
   return (
     <header>
       {/* Top Nav Content */}
-      <div className="bg-[#10132c]  px-4 flex items-center justify-between">
+      <div className="bg-[#0b0d1d] px-4 flex items-center justify-between">
         {/* Amazon Logo */}
         <div className="relative  h-16 w-24">
           <Image

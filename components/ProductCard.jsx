@@ -21,13 +21,13 @@ const ProductCard = ({ product }) => {
   }
 
   return (
-    <div className="bg-white px-4 py-4 shadow-md h-[450px] mb-2">
-      <div className="relative h-56 w-full">
+    <div className="bg-white px-4 py-4 shadow-md h-[465px] mb-2">
+      <div className="relative h-[220px] w-full">
         <Image src={thumbnail} alt="product-image" layout="fill" />
       </div>
-      <div className="max-w-full  h-[200px] flex flex-col justify-between">
+      <div className="max-w-full  h-[215px] flex flex-col justify-between">
         <div>
-          <p className="font-bold text-lg">{title.slice(0, 50)}</p>
+          <p className="font-bold lg:text-lg">{title.slice(0, 50)}</p>
           <div className="flex items-center gap-2">
             {ratingArray.map((rate, index) => (
               <AiFillStar key={index} className="text-yellow-500" />

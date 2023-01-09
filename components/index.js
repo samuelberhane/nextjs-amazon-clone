@@ -6,5 +6,20 @@ import Movies from "./Movies";
 import Books from "./Books";
 import Sells from "./Sells";
 import Feeds from "./Feeds";
+import Footer from "./Footer";
+import TopFooter from "./TopFooter";
+import BottomFooter from "./BottomFooter";
 
-export { Header, Banner, Products, ProductCard, Movies, Books, Sells, Feeds };
+export {
+  Header,
+  Banner,
+  Products,
+  ProductCard,
+  Movies,
+  Books,
+  Sells,
+  Feeds,
+  Footer,
+  TopFooter,
+  BottomFooter,
+};

@@ -15,11 +15,6 @@ const ProductCard = ({ product }) => {
   } = product;
   const rate = Math.round(rating);
 
-  const ratingArray = [];
-  for (let i = 0; i < rate; i++) {
-    ratingArray.push(i);
-  }
-
   return (
     <div className="bg-white px-4 py-4 shadow-md h-[465px] mb-2">
       <div className="relative h-[220px] w-full">
@@ -29,16 +24,20 @@ const ProductCard = ({ product }) => {
         <div>
           <p className="font-bold lg:text-lg">{title.slice(0, 50)}</p>
           <div className="flex items-center gap-2">
-            {ratingArray.map((rate, index) => (
-              <AiFillStar key={index} className="text-yellow-500" />
-            ))}
+            {Array(rate)
+              .fill()
+              .map((_, index) => (
+                <AiFillStar key={index} className="text-yellow-500" />
+              ))}
           </div>
           <p className="my-[0.15rem]">Brand: {brand}</p>
           <p className="text-sm">{description.slice(0, 90)}</p>
           <p className="my-[0.15rem] font-semibold text-green-600">${price}</p>
         </div>
 
-        <button className="bg-yellow-500 py-2 w-full">Add To Cart</button>
+        <button className="bg-yellow-500 py-2 w-full hover:bg-yellow-600 focus:ring-yellow-500 outline-none focus:ring-2 focus:from-yellow-500">
+          Add To Cart
+        </button>
       </div>
     </div>
   );

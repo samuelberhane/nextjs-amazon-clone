@@ -46,7 +46,7 @@ const Header = () => {
         <div className="flex items-center space-x-2 text-white pl-3 whitespace-nowrap">
           <div className="link">
             <p className="text-[0.75rem] font-light md:text-[0.9rem]">
-              Hello,Samuel Brhane
+              Hello,Sign in
             </p>
             <h1 className="text-sm font-bold md:text-[0.9rem]">
               Account & Lists

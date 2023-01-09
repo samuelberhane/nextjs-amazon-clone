@@ -7,7 +7,11 @@ import {
 } from "react-icons/ai";
 import { GoLocation } from "react-icons/go";
 
+import { signIn, signOut, useSession } from "next-auth/react";
+
 const Header = () => {
+  const { data } = useSession();
+
   return (
     <header>
       {/* Top Nav Content */}
@@ -44,9 +48,9 @@ const Header = () => {
 
         {/* Links */}
         <div className="flex items-center space-x-2 text-white pl-3 whitespace-nowrap">
-          <div className="link">
+          <div className="link" onClick={data ? signOut : signIn}>
             <p className="text-[0.75rem] font-light md:text-[0.9rem]">
-              Hello,Sign in
+              Hello,{data ? data.user.name : "Sign in"}
             </p>
             <h1 className="text-sm font-bold md:text-[0.9rem]">
               Account & Lists

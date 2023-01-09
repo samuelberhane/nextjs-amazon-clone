@@ -144,7 +144,7 @@ const BottomFooter = () => {
         </div>
       </div>
       <div className="my-2 pt-2 border-t-2 text-sm text-center">
-        <div className="flex space-x-2 items-center mb-2 justify-center">
+        <div className="flex space-x-2 items-center mb-2 justify-center whitespace-nowrap">
           <p>Conditions of Use</p>
           <p>Privacy Notice</p>
           <p>Your Ads Privacy Choices</p>

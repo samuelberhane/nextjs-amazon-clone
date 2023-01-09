@@ -5,6 +5,7 @@ import {
   AiOutlineMenu,
   AiOutlineCaretDown,
 } from "react-icons/ai";
+import { GoLocation } from "react-icons/go";
 
 const Header = () => {
   return (
@@ -12,13 +13,24 @@ const Header = () => {
       {/* Top Nav Content */}
       <div className="bg-[#10132c]  px-4 flex items-center justify-between">
         {/* Amazon Logo */}
-        <div className="relative  h-14 w-24">
+        <div className="relative  h-16 w-24">
           <Image
             src="/img/amazon.png"
             alt="logo"
             layout="fill"
             className="cursor-pointer"
           />
+        </div>
+
+        {/* Location */}
+        <div className="flex gap-1 link items-center text-white mr-3">
+          <GoLocation className="text-xl" />
+          <div>
+            <p className="text-[0.75rem] font-light md:text-[0.9rem]">
+              Deliver to
+            </p>
+            <p className="text-sm font-bold md:text-[0.9rem]">Ethiopia</p>
+          </div>
         </div>
 
         {/* Search Bar */}
@@ -67,7 +79,7 @@ const Header = () => {
         <p>SignIn</p>
         <p>Best Sellers</p>
         <p>Customer Service</p>
-        <div className="flex items-center">
+        <div className="sm:flex items-center hidden ">
           <p>Prime</p>
           <AiOutlineCaretDown className="ml-[0.15rem] mt-1" />
         </div>

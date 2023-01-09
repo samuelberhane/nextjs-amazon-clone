@@ -1,7 +1,8 @@
+import axios from "axios";
 import Head from "next/head";
-import { Header, Banner } from "../components";
+import { Header, Banner, Products } from "../components";
 
-export default function Home() {
+export default function Home({ products }) {
   return (
     <>
       <Head>
@@ -14,11 +15,23 @@ export default function Home() {
         {/* Header */}
         <Header />
 
-        <section className="mx-auto max-w-screen-xl ">
+        <section className="">
           {/* Banner */}
           <Banner />
+
+          {/* Top Products */}
+          <Products products={products} index={[0, 8]} />
         </section>
       </main>
     </>
   );
 }
+
+export const getServerSideProps = async () => {
+  let { data } = await axios.get("https://dummyjson.com/products?limit=100");
+  return {
+    props: {
+      products: data.products,
+    },
+  };
+};

@@ -2,11 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  body {
+    @apply bg-[#e6e2ec];
+  }
+}
+
 @layer components {
   .link {
     @apply cursor-pointer hover:underline;
   }
   .bannerImg {
-    @apply h-[45vh] w-full md:h-[60vh] lg:h-[70vh];
+    @apply h-[65vh] w-full md:h-[75vh] lg:h-[90vh];
   }
 }

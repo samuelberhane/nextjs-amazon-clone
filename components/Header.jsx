@@ -6,25 +6,27 @@ import {
   AiOutlineCaretDown,
 } from "react-icons/ai";
 import { GoLocation } from "react-icons/go";
-
 import { signIn, signOut, useSession } from "next-auth/react";
+import Link from "next/link";
+import { useSelector } from "react-redux";
+import { selectAmount } from "../redux/slice/cartSlice";
 
 const Header = () => {
   const { data } = useSession();
-
+  const amount = useSelector(selectAmount);
   return (
     <header>
       {/* Top Nav Content */}
-      <div className="bg-[#0b0d1d] px-4 flex items-center justify-between">
+      <div className="bg-[#0b0d1d] px-4 flex items-center justify-between py-1">
         {/* Amazon Logo */}
-        <div className="relative  h-16 w-24">
+        <Link href="/" className="relative  h-16 w-24 hover:border-2 ">
           <Image
             src="/img/amazon.png"
             alt="logo"
             layout="fill"
-            className="cursor-pointer"
+            className="cursor-pointer "
           />
-        </div>
+        </Link>
 
         {/* Location */}
         <div className="flex gap-1 link items-center text-white mr-3">
@@ -62,15 +64,18 @@ const Header = () => {
             </p>
             <h1 className="text-sm font-bold md:text-[0.9rem]">& Orders</h1>
           </div>
-          <div className="flex relative items-end  space-x-3 link">
+          <Link
+            href="/cart"
+            className="flex relative items-end  space-x-3 link"
+          >
             <AiOutlineShoppingCart className="text-4xl" />
             <p className="absolute left-[1rem] -top-2 bg-yellow-500 text-black rounded-full py-[0.15rem] px-[0.4rem] text-[0.8rem] font-bold">
-              0
+              {amount}
             </p>
             <p className="hidden md:inline text-md font-bold lg:text-lg">
               Cart
             </p>
-          </div>
+          </Link>
         </div>
       </div>
 

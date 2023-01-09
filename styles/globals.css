@@ -6,6 +6,17 @@
   body {
     @apply bg-[#e6e2ec];
   }
+  ::-webkit-scrollbar {
+    @apply w-[0.4rem] h-[0.4rem];
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-gray-500 rounded-md;
+  }
+
+  ::-webkit-scrollbar-trackc {
+    @apply bg-white;
+  }
 }
 
 @layer components {
@@ -13,6 +24,6 @@
     @apply cursor-pointer hover:underline;
   }
   .bannerImg {
-    @apply h-[65vh] w-full md:h-[75vh] lg:h-[90vh];
+    @apply h-[60vh] w-full md:h-[70vh] lg:h-[80vh];
   }
 }

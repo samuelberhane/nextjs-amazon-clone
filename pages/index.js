@@ -1,8 +1,8 @@
 import axios from "axios";
 import Head from "next/head";
-import { Header, Banner, Products } from "../components";
+import { Header, Banner, Products, Feeds } from "../components";
 
-export default function Home({ products }) {
+export default function Home({ products, movies, books }) {
   return (
     <>
       <Head>
@@ -15,12 +15,12 @@ export default function Home({ products }) {
         {/* Header */}
         <Header />
 
-        <section className="">
+        <section>
           {/* Banner */}
           <Banner />
 
-          {/* Top Products */}
-          <Products products={products} index={[0, 8]} />
+          {/* Product Feeds */}
+          <Feeds products={products} movies={movies} books={books} />
         </section>
       </main>
     </>
@@ -28,10 +28,18 @@ export default function Home({ products }) {
 }
 
 export const getServerSideProps = async () => {
-  let { data } = await axios.get("https://dummyjson.com/products?limit=100");
+  let [products, books, movies] = await Promise.all([
+    axios.get("https://dummyjson.com/products?limit=100"),
+    axios.get("https://api.itbook.store/1.0/new"),
+    axios.get(
+      `https://api.themoviedb.org/3/movie/top_rated?api_key=${process.env.NEXT_PUBLIC_MOVIE_APIKEY}&language=en-US`
+    ),
+  ]);
   return {
     props: {
-      products: data.products,
+      products: products.data.products,
+      books: books.data.books,
+      movies: movies.data.results,
     },
   };
 };

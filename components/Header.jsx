@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from "next/legacy/image";
 import { BiSearchAlt2 } from "react-icons/bi";
 import {
   AiOutlineShoppingCart,

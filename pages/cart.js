@@ -3,9 +3,16 @@ import Image from "next/legacy/image";
 import { CartCard, Header } from "../components";
 import { selectCartItems } from "../redux/slice/cartSlice";
 import { useSelector } from "react-redux";
+import { useState } from "react";
 
 const cart = () => {
+  let subtotalPrice = 0;
   const cartItems = useSelector(selectCartItems);
+  if (cartItems.length > 0) {
+    cartItems.map((item) => {
+      subtotalPrice += item.amount * item.price;
+    });
+  }
 
   return (
     <>
@@ -57,8 +64,8 @@ const cart = () => {
             </div>
             <div className="md:w-[250px] lg:w-[300px] border-l-4 border-gray-200">
               <h1 className="text-center">
-                Subtotal(4 Items):{" "}
-                <span className="font-bold text-lg">$76.98</span>
+                Subtotal({cartItems.length} Items):{" "}
+                <span className="font-bold text-lg">${subtotalPrice}</span>
               </h1>
               <div className="flex justify-center mt-2">
                 <button className="bg-gray-300 py-2 px-4">

@@ -9,11 +9,11 @@ import { GoLocation } from "react-icons/go";
 import { signIn, signOut, useSession } from "next-auth/react";
 import Link from "next/link";
 import { useSelector } from "react-redux";
-import { selectAmount } from "../redux/slice/cartSlice";
+import { selectCartItems } from "../redux/slice/cartSlice";
 
 const Header = () => {
   const { data } = useSession();
-  const amount = useSelector(selectAmount);
+  const cartItems = useSelector(selectCartItems);
 
   return (
     <header>
@@ -71,7 +71,7 @@ const Header = () => {
           >
             <AiOutlineShoppingCart className="text-4xl" />
             <p className="absolute left-[0.5rem] -top-3 bg-yellow-500 text-black rounded-full py-[0.15rem] px-[0.4rem] text-[0.8rem] font-bold">
-              {amount}
+              {cartItems.length}
             </p>
             <p className="hidden md:inline text-md font-bold lg:text-lg">
               Cart

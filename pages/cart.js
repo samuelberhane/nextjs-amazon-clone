@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Image from "next/legacy/image";
 import { Header } from "../components";
 
 const cart = () => {
@@ -12,6 +13,22 @@ const cart = () => {
       </Head>
       <main>
         <Header />
+        <div className="flex flex-col md:flex-row mx-2 sm:px-4 md:mx-10 lg:mx-16 py-4 bg-[#f9f7f7] min-h-[calc(100vh-130px)]">
+          <div className="flex-grow">
+            <div className="w-full bg-red-300 relative h-[380px] rounded-lg">
+              <Image
+                src="/img/cartAd.jpg"
+                alt="cartAd"
+                layout="fill"
+                className="rounded-lg"
+              />
+            </div>
+            <div>
+              <h1 className="mt-3 mb-2 font-bold text-lg">Your Amazon Cart</h1>
+            </div>
+          </div>
+          <div className="md:w-[300px] lg:w-[350px]"></div>
+        </div>
       </main>
     </>
   );

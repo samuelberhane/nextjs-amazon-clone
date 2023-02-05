@@ -41,7 +41,7 @@ const Books = ({ books }) => {
           </div>
         </div>
         <div
-          className="flex items-center  overflow-x-scroll scrollbar-hide hover:scrollbar-default"
+          className="flex items-center  overflow-x-scroll scrollbar-hide"
           ref={scrollRef}
         >
           {books?.map((book, index) => (

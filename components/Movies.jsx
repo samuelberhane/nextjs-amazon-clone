@@ -41,7 +41,7 @@ const Movies = ({ movies }) => {
           </div>
         </div>
         <div
-          className="flex items-center  overflow-x-scroll gap-3 scrollbar-hide hover:scrollbar-default"
+          className="flex items-center  overflow-x-scroll gap-3 scrollbar-hide"
           ref={scrollRef}
         >
           {movies?.map((movie, index) => (

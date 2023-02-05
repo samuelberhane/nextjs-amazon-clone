@@ -14,12 +14,13 @@ import { selectAmount } from "../redux/slice/cartSlice";
 const Header = () => {
   const { data } = useSession();
   const amount = useSelector(selectAmount);
+
   return (
     <header>
       {/* Top Nav Content */}
       <div className="bg-[#0b0d1d] px-4 flex items-center justify-between py-1">
         {/* Amazon Logo */}
-        <Link href="/" className="relative  h-16 w-24 hover:border-2 ">
+        <Link href="/" className="relative h-16 w-24 hover:border-2 ">
           <Image
             src="/img/amazon.png"
             alt="logo"
@@ -29,7 +30,7 @@ const Header = () => {
         </Link>
 
         {/* Location */}
-        <div className="flex gap-1 link items-center text-white mr-3">
+        <div className="gap-1 link items-center text-white mr-3 hidden md:flex">
           <GoLocation className="text-xl" />
           <div>
             <p className="text-[0.75rem] font-light md:text-[0.9rem]">
@@ -69,7 +70,7 @@ const Header = () => {
             className="flex relative items-end  space-x-3 link"
           >
             <AiOutlineShoppingCart className="text-4xl" />
-            <p className="absolute left-[1rem] -top-2 bg-yellow-500 text-black rounded-full py-[0.15rem] px-[0.4rem] text-[0.8rem] font-bold">
+            <p className="absolute left-[0.5rem] -top-3 bg-yellow-500 text-black rounded-full py-[0.15rem] px-[0.4rem] text-[0.8rem] font-bold">
               {amount}
             </p>
             <p className="hidden md:inline text-md font-bold lg:text-lg">

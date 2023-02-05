@@ -1,8 +1,22 @@
 import Head from "next/head";
 import Image from "next/legacy/image";
-import { Header } from "../components";
+import { useEffect, useState } from "react";
+import { CartCard, Header } from "../components";
 
 const cart = () => {
+  const [products, setProducts] = useState(null);
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      const response = await fetch("https://dummyjson.com/products");
+      const responseJson = await response.json();
+      setProducts(responseJson);
+    };
+    fetchProducts();
+  }, []);
+
+  console.log("products", products);
+
   return (
     <>
       <Head>
@@ -25,9 +39,14 @@ const cart = () => {
             </div>
             <div>
               <h1 className="mt-3 mb-2 font-bold text-lg">Your Amazon Cart</h1>
+              <div>
+                {products?.products?.slice(0, 4)?.map((product, index) => (
+                  <CartCard key={index} product={product} />
+                ))}
+              </div>
             </div>
           </div>
-          <div className="md:w-[300px] lg:w-[350px]"></div>
+          <div className="md:w-[250px] lg:w-[300px]"></div>
         </div>
       </main>
     </>

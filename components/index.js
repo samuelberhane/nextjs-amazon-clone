@@ -9,6 +9,7 @@ import Feeds from "./Feeds";
 import Footer from "./Footer";
 import TopFooter from "./TopFooter";
 import BottomFooter from "./BottomFooter";
+import CartCard from "./CartCard";
 
 export {
   Header,
@@ -22,4 +23,5 @@ export {
   Footer,
   TopFooter,
   BottomFooter,
+  CartCard,
 };

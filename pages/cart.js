@@ -3,10 +3,14 @@ import Image from "next/legacy/image";
 import { CartCard, Header } from "../components";
 import { selectCartItems } from "../redux/slice/cartSlice";
 import { useSelector } from "react-redux";
-import { useSession } from "next-auth/react";
+import { signIn, useSession } from "next-auth/react";
+import { loadStripe } from "@stripe/stripe-js";
+import axios from "axios";
+const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY);
 
 const cart = () => {
   const { data } = useSession();
+  console.log(data);
   let subtotalPrice = 0;
   const cartItems = useSelector(selectCartItems);
   if (cartItems.length > 0) {
@@ -14,6 +18,22 @@ const cart = () => {
       subtotalPrice += item.amount * item.price;
     });
   }
+
+  const createCheckoutSession = async () => {
+    const stripe = await stripePromise;
+    const checkoutSession = await axios.post("/api/create-checkout-session", {
+      cartItems,
+      data: data?.user,
+    });
+
+    const result = await stripe.redirectToCheckout({
+      sessionId: checkoutSession.data.id,
+    });
+
+    if (result.error) {
+      alert(result.error.message);
+    }
+  };
 
   return (
     <>
@@ -69,9 +89,22 @@ const cart = () => {
                 <span className="font-bold text-lg">${subtotalPrice}</span>
               </h1>
               <div className="flex justify-center mt-2">
-                <button className="py-2 px-4 bg-yellow-400 hover:bg-yellow-500">
-                  {data ? "Proceed to Checkout" : "Sign in to Checkout"}
-                </button>
+                {data ? (
+                  <button
+                    onClick={createCheckoutSession}
+                    role="link"
+                    className="py-2 px-4 bg-yellow-400 hover:bg-yellow-500"
+                  >
+                    Proceed to Checkout
+                  </button>
+                ) : (
+                  <button
+                    className="py-2 px-4 bg-yellow-400 hover:bg-yellow-500"
+                    onClick={signIn}
+                  >
+                    Sign in to Checkout
+                  </button>
+                )}
               </div>
             </div>
           </div>

@@ -12,6 +12,9 @@ const cartSlice = createSlice({
     GET_ITEMS: (state, action) => {
       state.cartItems = action.payload;
     },
+    REMOVE_ITEMS: (state, action) => {
+      (state.cartItems = []), localStorage.removeItem("cartItems");
+    },
     // Add item to cart
     ADD_ITEM: (state, action) => {
       state.cartItems = [...state.cartItems, action.payload];
@@ -53,6 +56,7 @@ export const {
   DECREASE_AMOUNT,
   REMOVE_ITEM,
   GET_ITEMS,
+  REMOVE_ITEMS,
 } = cartSlice.actions;
 export const selectCartItems = (state) => state.cart.cartItems;
 

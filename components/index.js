@@ -10,6 +10,7 @@ import Footer from "./Footer";
 import TopFooter from "./TopFooter";
 import BottomFooter from "./BottomFooter";
 import CartCard from "./CartCard";
+import OrderCard from "./OrderCard";
 
 export {
   Header,
@@ -24,4 +25,5 @@ export {
   TopFooter,
   BottomFooter,
   CartCard,
+  OrderCard,
 };

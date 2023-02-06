@@ -39,7 +39,7 @@ const Header = () => {
         </Link>
 
         {/* Location */}
-        <div className="gap-1 link items-center text-white mr-3 hidden md:flex">
+        {/* <div className="gap-1 link items-center text-white mr-3 hidden md:flex">
           <GoLocation className="text-xl" />
           <div>
             <p className="text-[0.75rem] font-light md:text-[0.9rem]">
@@ -47,7 +47,7 @@ const Header = () => {
             </p>
             <p className="text-sm font-bold md:text-[0.9rem]">Ethiopia</p>
           </div>
-        </div>
+        </div> */}
 
         {/* Search Bar */}
         <div className="bg-yellow-500 hidden sm:flex items-center rounded-md h-10 flex-grow hover:bg-yellow-600">
@@ -68,12 +68,12 @@ const Header = () => {
               Account & Lists
             </h1>
           </div>
-          <div className="link">
+          <Link href="/orders" className="link">
             <p className="text-[0.75rem] font-light md:text-[0.9rem]">
               Returns
             </p>
             <h1 className="text-sm font-bold md:text-[0.9rem]">& Orders</h1>
-          </div>
+          </Link>
           <Link
             href="/cart"
             className="flex relative items-end  space-x-3 link"

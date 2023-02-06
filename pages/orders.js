@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { db } from "../firebase/config";
 import { onSnapshot, query, collection, orderBy } from "firebase/firestore";
 
-const orders = () => {
+const Orders = () => {
   const { data } = useSession();
   const [orders, setOrders] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -61,4 +61,4 @@ const orders = () => {
   );
 };
 
-export default orders;
+export default Orders;

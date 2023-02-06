@@ -5,7 +5,7 @@ import { useEffect } from "react";
 import { BsCheckCircleFill } from "react-icons/bs";
 import Link from "next/link";
 
-const success = () => {
+const Success = () => {
   const dispatch = useDispatch();
 
   // Remove all products in  cartItem
@@ -42,4 +42,4 @@ const success = () => {
   );
 };
 
-export default success;
+export default Success;

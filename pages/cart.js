@@ -8,9 +8,8 @@ import { loadStripe } from "@stripe/stripe-js";
 import axios from "axios";
 const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY);
 
-const cart = () => {
+const Cart = () => {
   const { data } = useSession();
-  console.log(data);
   let subtotalPrice = 0;
   const cartItems = useSelector(selectCartItems);
   if (cartItems.length > 0) {
@@ -114,4 +113,4 @@ const cart = () => {
   );
 };
 
-export default cart;
+export default Cart;

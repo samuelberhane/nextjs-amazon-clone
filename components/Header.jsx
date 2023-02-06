@@ -8,12 +8,21 @@ import {
 import { GoLocation } from "react-icons/go";
 import { signIn, signOut, useSession } from "next-auth/react";
 import Link from "next/link";
-import { useSelector } from "react-redux";
-import { selectCartItems } from "../redux/slice/cartSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { GET_ITEMS, selectCartItems } from "../redux/slice/cartSlice";
+import { useEffect } from "react";
 
 const Header = () => {
   const { data } = useSession();
   const cartItems = useSelector(selectCartItems);
+  const dispatch = useDispatch();
+
+  // get saved cart items from local storage
+  useEffect(() => {
+    const savedItems = JSON.parse(localStorage.getItem("cartItems"));
+    if (savedItems) dispatch(GET_ITEMS(savedItems));
+    else dispatch(GET_ITEMS([]));
+  }, []);
 
   return (
     <header>

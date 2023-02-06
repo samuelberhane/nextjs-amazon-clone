@@ -3,9 +3,10 @@ import Image from "next/legacy/image";
 import { CartCard, Header } from "../components";
 import { selectCartItems } from "../redux/slice/cartSlice";
 import { useSelector } from "react-redux";
-import { useState } from "react";
+import { useSession } from "next-auth/react";
 
 const cart = () => {
+  const { data } = useSession();
   let subtotalPrice = 0;
   const cartItems = useSelector(selectCartItems);
   if (cartItems.length > 0) {
@@ -68,8 +69,8 @@ const cart = () => {
                 <span className="font-bold text-lg">${subtotalPrice}</span>
               </h1>
               <div className="flex justify-center mt-2">
-                <button className="bg-gray-300 py-2 px-4">
-                  Sign in to Checkout
+                <button className="py-2 px-4 bg-yellow-400 hover:bg-yellow-500">
+                  {data ? "Proceed to Checkout" : "Sign in to Checkout"}
                 </button>
               </div>
             </div>

@@ -29,7 +29,7 @@ const Header = () => {
       {/* Top Nav Content */}
       <div className="bg-[#0b0d1d] px-4 flex items-center justify-between py-1">
         {/* Amazon Logo */}
-        <Link href="/" className="relative h-16 w-24 hover:border-2 ">
+        <Link href="/" className="relative h-16 w-24 hover:border-2 mr-4">
           <Image
             src="/img/amazon.png"
             alt="logo"

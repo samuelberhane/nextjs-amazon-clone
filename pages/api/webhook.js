@@ -1,15 +1,15 @@
 import { buffer } from "micro";
 let admin = require("firebase-admin");
-let serviceAccount = require("../../firebase/permission.json");
+// let serviceAccount = require("../../firebase/permission.json");
 const stripe = require("stripe")(process.env.NEXT_PUBLIC_STRIPE_SECRET_KEY);
 const endpointSecret = process.env.NEXT_PUBLIC_STRIPE_SIGNIN_SECRET;
-// import app from "../../firebase/config";
+import app from "../../firebase/config";
 
-const app = !admin.apps.length
-  ? admin.initializeApp({
-      credential: admin.credential.cert(serviceAccount),
-    })
-  : admin.app();
+// const app = !admin.apps.length
+//   ? admin.initializeApp({
+//       credential: admin.credential.cert(serviceAccount),
+//     })
+//   : admin.app();
 
 const fulfilledOrder = async (session) => {
   return app

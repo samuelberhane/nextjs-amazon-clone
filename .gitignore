@@ -5,8 +5,6 @@
 /.pnp
 .pnp.js
 
-# /firebase/permission.json
-
 # testing
 /coverage
 

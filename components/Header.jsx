@@ -5,7 +5,6 @@ import {
   AiOutlineMenu,
   AiOutlineCaretDown,
 } from "react-icons/ai";
-import { GoLocation } from "react-icons/go";
 import { signIn, signOut, useSession } from "next-auth/react";
 import Link from "next/link";
 import { useDispatch, useSelector } from "react-redux";
@@ -37,17 +36,6 @@ const Header = () => {
             className="cursor-pointer "
           />
         </Link>
-
-        {/* Location */}
-        {/* <div className="gap-1 link items-center text-white mr-3 hidden md:flex">
-          <GoLocation className="text-xl" />
-          <div>
-            <p className="text-[0.75rem] font-light md:text-[0.9rem]">
-              Deliver to
-            </p>
-            <p className="text-sm font-bold md:text-[0.9rem]">Ethiopia</p>
-          </div>
-        </div> */}
 
         {/* Search Bar */}
         <div className="bg-yellow-500 hidden sm:flex items-center rounded-md h-10 flex-grow hover:bg-yellow-600">
